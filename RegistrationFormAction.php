@@ -11,16 +11,21 @@
 
 		if($_SERVER['REQUEST_METHOD'] == "POST") {
 			
-			if(empty($_POST['fname']) && empty($_POST['lname'])) {
+			if(empty($_POST['firstname']) && empty($_POST['lastname']) && empty($_POST['male']) && empty($_POST['email']) && empty($_POST['female']) && empty($_POST['uname']) && empty($_POST['pass']) && empty($_POST['re'])) {
 				echo "Please fill up the form properly";
 			} 
 			else {
-				$firstname = $_POST['fname'];
-				$lastname = $_POST['lname'];
-				echo "Client name is: $firstName $lastName";
+				$fname = $_POST['fname'];
+				$lname = $_POST['lname'];
+				$gender = $_POST['gender'];
+				$mail = $_POST['mail'];
+				$username = $_POST['username'];
+				$pw = $_POST['pw'];
+				$email = $_POST['email'];
+				echo "Client name is: $fname $lname";
 
 				$f=fopen("store.txt", "a");
-				fwrite($f, $firstname." ".$lastname)
+				fwrite($f, $fname." ".$lname." ".$gender." ".$mail." ".$username." ".$pw." ".$email);
 			}
 		}
 	?>
